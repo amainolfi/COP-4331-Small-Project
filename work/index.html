@@ -1,16 +1,73 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="index.css">
         <title>COP4331 Small Project</title>
+        <style>
+            body {
+                
+                background-color: #000;
+                background-image: url("https://images-assets.nasa.gov/image/art002e024014/art002e024014~large.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: middle right;
+                background-size: 125% auto;
+                font-family: 'Times New Roman', Times, serif, sans-serif;
+                text-align: center;
+                margin-top: 80px;
+                color: white;
+            }
+            .wrapper{
+                width: 350px;
+                margin: 80px auto;
+                padding: 30px;
+                border: 3px solid navy;
+                border-radius: 10px;
+                background-color: rgba(0, 0, 30, 0.65);
+            }
+            .input-box{
+                margin: 0px 0;
+            }
+            .input-box input{
+                width: 100%;
+                padding: 10px;
+                border-radius: 100px;
+                margin-left: -10px;
+                
+            }
+            a{
+                color: #ffd116;
+                text-decoration: underline;
+            }
+        </style>
+        <h1>Contact Hub</h1>
+        <h2>Connecting you to the global network</h2>
     </head>
     <body>
-        <h1>Contact Manager</h1>
-        <button onclick = "login()" style="font-size: large; background-color: lightgray; color: black;">Login</button>
-        <script>
-            function login()
-            {
-                window.location.href = "login.html";
-            }
-        </script>
+        <div class = "wrapper"> 
+            <form action = "">
+                <h1> 
+                    <p style = "font-size: 20px; color: white; margin-top: 20px;" > Login </p>
+                    <div class="input-box">
+                        <input type="text" placeholder="Username" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" style = "font-size: 15px; color: black; margin-top: 20px;" >Login</button>
+
+                    <div class="forgotpass-remember">
+                        <p style = "font-size: 15px; color: white; margin-top: 20px;" > 
+                            <label><input type="checkbox"> Remember me |</label>
+                            <a href="#">Forgot password?</a>
+                        </p>
+                        <p style = "font-size: 15px; color: white; margin-top: 20px;" > Don't have an account? | <a href="#">Sign up</a>
+                    </div>
+                </h1>
+            </form>
+        </div>
+        
+
+
     </body>
 </html>

@@ -15,7 +15,7 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT ID, FirstName, LastName FROM Contacts WHERE (FirstName LIKE ? OR LastName LIKE ?) AND UserID = ?");
+		$stmt = $conn->prepare("SELECT ID, FirstName, LastName, Email, Phone FROM Contacts WHERE (FirstName LIKE ? OR LastName LIKE ?) AND UserID = ?");
 		$stmt->bind_param("ssi", $Search, $Search, $UserID);
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -23,7 +23,7 @@
 		$contacts = [];
 		while($row = $result->fetch_assoc())
 		{
-			$contact = ["id" => $row['ID'],"firstName" => $row['FirstName'],"lastName" => $row['LastName']];
+			$contact = ["id" => $row['ID'],"firstName" => $row['FirstName'],"lastName" => $row['LastName'],"email" => $row['Email'],"phone" => $row['Phone']];
 			array_push($contacts, $contact);
 		}
 		returnWithInfo($contacts);

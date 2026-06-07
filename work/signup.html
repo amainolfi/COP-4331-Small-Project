@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Contact Hub</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/theme.js?v=20260605-2" defer></script>
+    <script src="js/api.js?v=20260605-2" defer></script>
+    <script src="js/signup.js?v=20260605-2" defer></script>
+</head>
+<body class="dark-mode auth-page compact-page">
+    <header class="site-header">
+        <a class="brand" href="index.html">Contact Hub</a>
+        <nav class="nav-links" aria-label="Primary navigation">
+            <a href="index.html">Login</a>
+            <button class="theme-toggle-btn" id="themeToggle" type="button">Light mode</button>
+        </nav>
+    </header>
+
+    <main class="center-layout">
+        <section class="auth-card narrow-card" aria-labelledby="signupTitle">
+            <h1 id="signupTitle">Create Account</h1>
+            <p class="card-subtitle">Enter the user fields supported by the current database schema.</p>
+
+            <form id="signupForm" novalidate>
+                <div class="form-field">
+                    <label for="signupFirstName">First Name</label>
+                    <input id="signupFirstName" name="FirstName" type="text" autocomplete="given-name" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="signupLastName">Last Name</label>
+                    <input id="signupLastName" name="LastName" type="text" autocomplete="family-name" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="signupLogin">Username</label>
+                    <input id="signupLogin" name="Login" type="text" autocomplete="username" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="signupPassword">Password</label>
+                    <input id="signupPassword" name="Password" type="password" autocomplete="new-password" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input id="signupConfirmPassword" type="password" autocomplete="new-password" required>
+                </div>
+
+                <p class="status-message" id="signupStatus" role="status" aria-live="polite"></p>
+
+                <button class="primary-button" type="submit">Create Account</button>
+            </form>
+
+            <p class="auth-switch">Already have an account? <a href="index.html">Back to login</a></p>
+        </section>
+    </main>
+</body>
+</html>

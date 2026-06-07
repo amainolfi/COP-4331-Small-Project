@@ -1,329 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact Hub</title>
 
-        <style>
-            * {
-                box-sizing: border-box;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Hub</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/theme.js?v=20260605-2" defer></script>
+    <script src="js/api.js?v=20260605-2" defer></script>
+    <script src="js/auth.js?v=20260605-2" defer></script>
+</head>
 
-            body {
-                margin: 0;
-                min-height: 100vh;
-                background-color: #000;
-                background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 20, 0.75)),
-                                  url("https://images-assets.nasa.gov/image/art002e024014/art002e024014~large.jpg");
-                background-repeat: no-repeat;
-                background-position: center right;
-                background-size: 125% auto;
-                font-family: 'Times New Roman', Times, serif;
-                color: white;
-            }
-
-            .navbar {
-                width: 100%;
-                padding: 20px 60px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                background-color: rgba(0, 0, 20, 0.65);
-                border-bottom: 2px solid #001f54;
-            }
-
-            .navbar h2 {
-                margin: 0;
-                color: white;
-                letter-spacing: 1px;
-            }
-
-            .nav-links a {
-                color: #ffd166;
-                text-decoration: none;
-                margin-left: 25px;
-                font-size: 18px;
-            }
-
-            .nav-links a:hover {
-                color: white;
-                text-decoration: underline;
-            }
-
-            .main-container {
-                min-height: calc(100vh - 80px);
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 50px 80px;
-                gap: 40px;
-            }
-
-            .hero-section {
-                max-width: 550px;
-                text-align: left;
-            }
-
-            .hero-section h1 {
-                font-size: 58px;
-                margin-bottom: 10px;
-            }
-
-            .hero-section h2 {
-                font-size: 26px;
-                font-weight: normal;
-                color: #d9eaff;
-                margin-top: 0;
-            }
-
-            .tagline {
-                font-size: 19px;
-                line-height: 1.5;
-                color: #f1f1f1;
-                margin-top: 25px;
-            }
-
-            .feature-list {
-                display: flex;
-                gap: 15px;
-                flex-wrap: wrap;
-                margin-top: 35px;
-            }
-
-            .feature-card {
-                width: 165px;
-                min-height: 125px;
-                padding: 15px;
-                border: 2px solid #001f54;
-                border-radius: 15px;
-                background-color: rgba(0, 0, 30, 0.72);
-                box-shadow: 0 0 12px rgba(0, 31, 84, 0.8);
-            }
-
-            .feature-card h3 {
-                color: #ffd166;
-                margin-top: 0;
-                margin-bottom: 8px;
-                font-size: 18px;
-            }
-
-            .feature-card p {
-                margin: 0;
-                font-size: 14px;
-                line-height: 1.35;
-            }
-
-            .login-wrapper {
-                width: 370px;
-                padding: 30px;
-                border: 3px solid #001f54;
-                border-radius: 18px;
-                background-color: rgba(0, 0, 30, 0.78);
-                box-shadow: 0 0 25px rgba(0, 31, 84, 0.95);
-                text-align: center;
-            }
-
-            .login-wrapper h2 {
-                margin-top: 0;
-                color: white;
-                font-size: 30px;
-            }
-
-            .login-wrapper p {
-                color: #d9eaff;
-                font-size: 16px;
-            }
-
-            .input-box {
-                margin: 18px 0;
-            }
-
-            .input-box input {
-                width: 100%;
-                padding: 12px;
-                border: 2px solid #003566;
-                border-radius: 8px;
-                font-size: 16px;
-                background-color: #f4f4f4;
-                color: black;
-            }
-
-            .input-box input:focus {
-                outline: none;
-                border-color: #ffd166;
-            }
-
-            .login-button {
-                width: 100%;
-                padding: 12px;
-                margin-top: 10px;
-                border: none;
-                border-radius: 8px;
-                background-color: #ffd166;
-                color: black;
-                font-size: 17px;
-                font-weight: bold;
-                cursor: pointer;
-            }
-
-            .login-button:hover {
-                background-color: white;
-            }
-
-            .login-options {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 18px;
-                font-size: 14px;
-            }
-
-            .login-options label {
-                color: white;
-            }
-
-            a {
-                color: #ffd166;
-                text-decoration: none;
-            }
-
-            a:hover {
-                color: white;
-                text-decoration: underline;
-            }
-
-            .signup-text {
-                margin-top: 25px;
-            }
-
-            footer {
-                text-align: center;
-                padding: 15px;
-                background-color: rgba(0, 0, 20, 0.75);
-                border-top: 2px solid #001f54;
-                color: lightgray;
-                font-size: 14px;
-            }
-
-            @media screen and (max-width: 900px) {
-                body {
-                    background-size: cover;
-                    background-position: center;
-                }
-
-                .navbar {
-                    padding: 18px 25px;
-                    flex-direction: column;
-                    gap: 12px;
-                }
-
-                .nav-links a {
-                    margin: 0 10px;
-                }
-
-                .main-container {
-                    flex-direction: column;
-                    padding: 35px 25px;
-                    text-align: center;
-                }
-
-                .hero-section {
-                    text-align: center;
-                }
-
-                .hero-section h1 {
-                    font-size: 44px;
-                }
-
-                .feature-list {
-                    justify-content: center;
-                }
-
-                .login-wrapper {
-                    width: 100%;
-                    max-width: 370px;
-                }
-            }
-        </style>
-    </head>
-
-    <body>
-        <nav class="navbar">
-            <h2>Contact Hub</h2>
-
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="login.html">Login</a>
-                <a href="register.html">Sign Up</a>
-            </div>
+<body class="dark-mode auth-page">
+    <header class="site-header">
+	<a class="brand" href="index.html">Contact Hub</a>
+        <nav class="nav-links" aria-label="Primary navigation">
+	   <!-- <a href="index.html" aria-current="page">Home</a> -->
+            <a href="signup.html">Sign Up</a>
+            <button class="theme-toggle-btn" id="themeToggle" type="button">Light mode</button>
         </nav>
+    </header>
 
-        <main class="main-container">
-            <section class="hero-section">
-                <h1>Contact Hub</h1>
-                <h2>Connecting you to the global network</h2>
+    <main class="landing-layout">
+        <section class="hero-copy" aria-labelledby="heroTitle">
+            <p class="eyebrow">COP4331 Small Project</p>
+            <h1 id="heroTitle">Contact Hub</h1>
+            <p class="hero-subtitle">Connecting you to the global network.</p>
+            <p class="hero-text">
+                Sign in to manage your personal contacts, search by name, and keep your address book organized.
+            </p>
 
-                <p class="tagline">
-                    Manage your personal contacts from one clean and simple web app.
-                    Contact Hub lets each user log in, save contacts, search by name,
-                    and keep their contact list organized.
-                </p>
+            <div class="feature-list" aria-label="Contact Hub features">
+                <article class="feature-card">
+                    <h2>Save</h2>
+                    <p>Add contact names, phone numbers, and emails to your own account.</p>
+                </article>
+                <article class="feature-card">
+                    <h2>Search</h2>
+                    <p>Find contacts quickly with first or last name matching.</p>
+                </article>
+                <article class="feature-card">
+                    <h2>Private</h2>
+                    <p>Your dashboard only loads contacts tied to your user ID.</p>
+                </article>
+            </div>
+        </section>
 
-                <div class="feature-list">
-                    <div class="feature-card">
-                        <h3>Save</h3>
-                        <p>Add names, emails, and phone numbers to your own contact list.</p>
-                    </div>
+        <section class="auth-card" aria-labelledby="loginTitle">
+            <h2 id="loginTitle">Login</h2>
+            <p class="card-subtitle">Access your saved contacts below.</p>
 
-                    <div class="feature-card">
-                        <h3>Search</h3>
-                        <p>Find contacts quickly using partial first or last name matching.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <h3>Secure</h3>
-                        <p>Each user only has access to their own personal contacts.</p>
-                    </div>
+            <form id="loginForm" novalidate>
+                <div class="form-field">
+                    <label for="loginName">Username</label>
+                    <input id="loginName" name="login" type="text" autocomplete="username" required>
                 </div>
-            </section>
 
-            <section class="login-wrapper">
-                <form action="" method="post">
-                    <h2>Login</h2>
-                    <p>Access your saved contacts below.</p>
+                <div class="form-field">
+                    <label for="loginPassword">Password</label>
+                    <input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+                </div>
 
-                    <div class="input-box">
-                        <input type="text" placeholder="Username" required>
-                    </div>
+		<p class="status-message" id="loginStatus" role="status" aria-live="polite"></p>
 
-                    <div class="input-box">
-                        <input type="password" placeholder="Password" required>
-                    </div>
+		<button class="primary-button" type="submit">Login</button>
+            </form>
 
-                    <button type="submit" class="login-button">Login</button>
+            <p class="auth-switch">Do not have an account? <a href="signup.html">Create one</a></p>
+        </section>
+    </main>
 
-                    <div class="login-options">
-                        <label><input type="checkbox"> Remember me</label>
-                        <a href="#">Forgot password?</a>
-                    </div>
-
-                    <p class="signup-text">
-                        Don't have an account? <a href="register.html">Sign up</a>
-                    </p>
-                </form>
-            </section>
-        </main>
-
-        <footer>
-            <p>Contact Hub | COP4331 Small Project | LAMP Stack Contact Manager</p>
-        </footer>
-
-        <script>
-            function login()
-            {
-                window.location.href = "login.html";
-            }
-        </script>
-    </body>
+    <footer class="site-footer">
+        <p>Contact Hub | LAMP Stack Contact Manager</p>
+    </footer>
+</body>
 </html>

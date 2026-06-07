@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Contact Hub</title>
+    <link rel="stylesheet" href="css/app.css?v=20260605-3">
+    <script src="js/theme.js?v=20260605-2" defer></script>
+    <script src="js/api.js?v=20260605-2" defer></script>
+    <script src="js/dashboard.js?v=20260605-3" defer></script>
+</head>
+<body class="dark-mode dashboard-page">
+    <header class="site-header">
+        <a class="brand" href="logged.html">Contact Hub</a>
+        <nav class="nav-links" aria-label="Dashboard navigation">
+            <span class="welcome-text" id="welcomeUser"></span>
+            <button class="theme-toggle-btn" id="themeToggle" type="button">Light mode</button>
+            <button class="text-button danger-text" id="logoutButton" type="button">Logout</button>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="dashboard-heading">
+            <div>
+                <p class="eyebrow">Dashboard</p>
+                <h1>Your Contacts</h1>
+            </div>
+            <button class="primary-button compact-button" id="openContactModal" type="button">Add Contact</button>
+        </section>
+
+        <section class="controls-panel" aria-label="Contact controls">
+            <form class="search-form" id="searchForm">
+                <label class="sr-only" for="searchInput">Search contacts</label>
+                <input id="searchInput" type="search" placeholder="Search contacts by first or last name" autocomplete="off">
+                <button class="secondary-button" type="submit">Search</button>
+            </form>
+        </section>
+
+        <p class="status-message dashboard-status" id="dashboardStatus" role="status" aria-live="polite"></p>
+
+        <section class="contacts-grid" id="contactsGrid" aria-label="Contacts"></section>
+
+        <section class="empty-state" id="emptyState" hidden>
+            <h2>No contacts found</h2>
+            <p>Add a contact or adjust your search.</p>
+        </section>
+    </main>
+
+    <div class="modal-overlay" id="contactModal" hidden>
+        <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+            <button class="icon-button" id="closeContactModal" type="button" aria-label="Close contact form">x</button>
+            <h2 id="contactModalTitle">Add Contact</h2>
+
+            <form id="contactForm" novalidate>
+                <div class="form-field">
+                    <label for="contactFirstName">First Name</label>
+                    <input id="contactFirstName" name="FirstName" type="text" autocomplete="given-name" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="contactLastName">Last Name</label>
+                    <input id="contactLastName" name="LastName" type="text" autocomplete="family-name" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="contactEmail">Email</label>
+                    <input id="contactEmail" name="Email" type="email" autocomplete="email" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="contactPhone">Phone</label>
+                    <input id="contactPhone" type="text" maxlength="10" inputmode="numeric" placeholder="1234567890">
+                </div>
+
+                <p class="status-message" id="contactFormStatus" role="status" aria-live="polite"></p>
+
+                <div class="form-actions">
+                    <button class="secondary-button" id="cancelContactForm" type="button">Cancel</button>
+                    <button class="primary-button" type="submit">Save Contact</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <p>Contact Hub | LAMP Stack Contact Manager</p>
+    </footer>
+</body>
+</html>

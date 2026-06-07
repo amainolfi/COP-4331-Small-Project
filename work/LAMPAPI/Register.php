@@ -11,8 +11,6 @@
         exit();
     }
 
-    // --- ENCRYPTION SAFETY ADDITION ---
-    // Hashes the password securely using bcrypt. Resulting string is ~60 characters long.
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     // ----------------------------------
 

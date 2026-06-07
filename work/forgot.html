@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password - Contact Hub</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/theme.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <!--<script src="js/forgot.js" defer></script>-->
+</head>
+<body class="dark-mode auth-page compact-page">
+    <header class="site-header">
+        <a class="brand" href="index.html">Contact Hub</a>
+        <nav class="nav-links" aria-label="Primary navigation">
+            <a href="index.html">Login</a>
+            <button class="theme-toggle-btn" id="themeToggle" type="button">Light mode</button>
+        </nav>
+    </header>
+
+    <main class="center-layout">
+        <section class="auth-card narrow-card" aria-labelledby="forgotTitle">
+            <h1 id="forgotTitle">Reset Password</h1>
+            <p class="card-subtitle">Enter your username and a new password.</p>
+
+            <form id="forgotForm" novalidate>
+                <div class="form-field">
+                    <label for="resetLogin">Username</label>
+                    <input id="resetLogin" name="login" type="text" autocomplete="username" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="resetPassword">New Password</label>
+                    <input id="resetPassword" name="password" type="password" autocomplete="new-password" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="resetConfirmPassword">Confirm New Password</label>
+                    <input id="resetConfirmPassword" type="password" autocomplete="new-password" required>
+                </div>
+
+                <p class="status-message" id="forgotStatus" role="status" aria-live="polite"></p>
+
+                <button class="primary-button" type="submit">Reset Password</button>
+            </form>
+
+            <p class="auth-switch"><a href="index.html">Back to login</a></p>
+        </section>
+    </main>
+</body>
+</html>
